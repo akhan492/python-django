@@ -1,4 +1,4 @@
-from pythondjango.chai.models import Movies
+from chai.models import Movies
 from rest_framework import serializers
 
 class MovieSerializer(serializers.Serializer):
@@ -7,9 +7,7 @@ class MovieSerializer(serializers.Serializer):
     description= serializers.CharField()
     active = serializers.BooleanField()
 
-    def create(self, valirm -rf .git        # Linux / macOS
-# OR
-rmdir /s /q .git   # Windows PowerShell / CMD
-dated_data):
+    def create(self, validated_data):
+     print(validated_data, 'data')
      return  Movies.objects.create(**validated_data)
 
