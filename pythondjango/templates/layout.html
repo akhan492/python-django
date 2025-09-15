@@ -1,0 +1,28 @@
+{% load static tailwind_tags %} {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    {% endcomment %}
+    <title>{% block title %}Default value{% endblock title %}</title>
+    {% tailwind_css %}
+  </head>
+  <body>
+    <nav class="text-blue-600">this nav bar</nav>
+    {% block content %}{% endblock content %}
+
+    <div id="root"></div>
+
+    <!-- Load React build -->
+    <script>
+      window.chais = {{ chais|safe }};
+    </script>
+    <script
+      type="module"
+      src="{% static 'frontend/assets/index-Dna_e_nZ.js' %}"
+    ></script>
+  </body>
+</html>

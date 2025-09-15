@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}This the chai page{% endblock title %}
+
+{% block content %}<h1 class='text-black'>Chai page for all the type</h1>
+
+{% for chai in chais %}
+<div>{{chai.name}}</div>
+<div>{{chai.age}}</div>
+{% endfor %}
+{% endblock content %}</h1>
+
