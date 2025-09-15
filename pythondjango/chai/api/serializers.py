@@ -7,6 +7,9 @@ class MovieSerializer(serializers.Serializer):
     description= serializers.CharField()
     active = serializers.BooleanField()
 
-    def create(self, validated_data):
+    def create(self, valirm -rf .git        # Linux / macOS
+# OR
+rmdir /s /q .git   # Windows PowerShell / CMD
+dated_data):
      return  Movies.objects.create(**validated_data)
 
