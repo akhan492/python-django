@@ -1,15 +1,20 @@
 from chai.models import Movies
 from rest_framework import serializers
 
-class MovieSerializer(serializers.Serializer):
-    id= serializers.IntegerField(read_only=True)
-    name= serializers.CharField()
-    description= serializers.CharField()
-    active = serializers.BooleanField()
+class MovieSerializer(serializers.ModelSerializer):
+   class Meta:
+      model = Movies
+      fields= '__all__'
 
-    def create(self, validated_data):
-     print(validated_data, 'data')
-     return  Movies.objects.create(**validated_data)
+# class MovieSerializer(serializers.Serializer):
+#     id= serializers.IntegerField(read_only=True)
+#     name= serializers.CharField()
+#     description= serializers.CharField()
+#     active = serializers.BooleanField()
+
+#     def create(self, validated_data):
+#      print(validated_data, 'data')
+#      return  Movies.objects.create(**validated_data)
     
 
     # def update(self, instance, validated_data):
@@ -22,8 +27,8 @@ class MovieSerializer(serializers.Serializer):
     #     instance.save()
     #     return instance
 
-    def update(self, instance, validated_data):
-        for attr, value in validated_data.items():
-            setattr(instance, attr, value)
-        instance.save()  # save **once** after updating all fields
-        return instance
+    # def update(self, instance, validated_data):
+    #     for attr, value in validated_data.items():
+    #         setattr(instance, attr, value)
+    #     instance.save()  # save **once** after updating all fields
+    #     return instance

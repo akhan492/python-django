@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'chai',
     'tailwind',
     'theme',
-    'rest_framework'
+    'rest_framework',
+    'watchlist_app'
 ]
 
 TAILWIND_APP_NAME = 'theme'

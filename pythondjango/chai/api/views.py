@@ -34,5 +34,8 @@ def movies_details(request, pk):
             return Response(serilaizer.data)
         else:
             return Response(serilaizer.error_messages)
-    # if request.method=="DELETE":
-
+        
+    if request.method=="DELETE":
+        movie =Movies.objects.get(pk=pk)
+        movie.delete()
+        return Response('object is deleted')
