@@ -15,7 +15,31 @@ class StreamPlatformAV(APIView):
             return Response(serializer.data)
         else:
             return Response(serializer.errors)
+class StreamPlatformDetailsAV(APIView):
+    def get(self, request, pk):
+        try:
+            movie =StreamPlatform.objects.get(pk=pk)
+        except StreamPlatform.DoesNotExist:
+            return Response({'error': 'Movie not found'})
+        
+        serializer = StreamPlatformSerializer(movie)
+        return Response(serializer.data)
 
+
+    def put(self, request, pk):
+
+        movie= StreamPlatform.objects.get(pk=pk)
+        serializer = StreamPlatformSerializer(movie, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors)
+    
+    def delete(self, request, pk):
+        movie= StreamPlatform.objects.get(pk=pk)
+        movie.delete()
+        return Response('deleted successfully')
 class WatchListAV(APIView):
 
     def get(self, request):
