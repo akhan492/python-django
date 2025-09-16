@@ -23,6 +23,7 @@ urlpatterns = [
     path("", views.home),
     path('about/', views.about),
     path("contact/", views.contact),
+    path('chai/', include('chai.urls')),
     path('chai/', include('chai.api.urls')),
     path('movie/', include('watchlist_app.urls')),
 ]
